@@ -1,9 +1,14 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+
+
 public class Main {
-    public static void main(String[] args) {
 
-        Trie words = new Trie();
-        words.insert("Hello");
 
-        System.out.println(words.search("Hello"));
+    public static void main(String[] args) throws FileNotFoundException {
+        File file = new File("src/Trie.java");
+        ClassScanner classScanner = new ClassScanner(file);
+        System.out.println();
+        classScanner.scan();
     }
 }

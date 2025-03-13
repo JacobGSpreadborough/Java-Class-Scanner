@@ -1,10 +1,15 @@
 public class Trie {
     TrieNode root;
 
-    public Trie(){
+    public Trie() {
         root = new TrieNode(' ');
     }
 
+    public void insertArray(String[] words) {
+        for(String word : words) {
+            insert(word);
+        }
+    }
 
     public void insert(String word) {
         TrieNode current = root;
@@ -17,12 +22,11 @@ public class Trie {
 
     public boolean search(String word) {
         TrieNode current = root;
-        for(int i = 0; i < word.length(); i++) {
+        for (int i = 0; i < word.length(); i++) {
             char offSet = Character.isUpperCase(word.charAt(i)) ? 'A' : 'a';
-            if(current.children[word.charAt(i) - offSet] == null) {
+            if (current.children[word.charAt(i) - offSet] == null) {
                 return false;
-            }
-            else {
+            } else {
                 current = current.children[word.charAt(i) - offSet];
             }
         }
