@@ -14,6 +14,12 @@ public class Trie {
 		}
 	}
 
+    public void insertArray(String[] words) {
+        for(String word : words) {
+            insert(word);
+        }
+    }
+
 	public boolean search(String word) {
 		TrieNode current = root;
 		for (int i = 0; i < word.length(); i++) {
@@ -26,4 +32,5 @@ public class Trie {
 		}
 		return true;
 	}
+
 }
