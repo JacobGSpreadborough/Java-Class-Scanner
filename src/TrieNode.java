@@ -1,10 +1,10 @@
 public class TrieNode {
-    char key;
-    TrieNode[] children = new TrieNode[52];
-    boolean isFinalCharacter;
+	char key;
+	TrieNode[] children = new TrieNode[52];
+	boolean isFinalCharacter;
 
-    public TrieNode(char key) {
-        this.key = key;
-    }
+	public TrieNode(char key) {
+		this.key = key;
+	}
 
 }
