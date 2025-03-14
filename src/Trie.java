@@ -9,16 +9,19 @@ public class Trie {
 		TrieNode current = root;
 		for (int i = 0; i < word.length(); i++) {
 			char offSet = Character.isUpperCase(word.charAt(i)) ? 'A' : 'a';
-			current.children[word.charAt(i) - offSet] = new TrieNode(word.charAt(i));
+			if(current.children[word.charAt(i) - offSet] == null) {
+				current.children[word.charAt(i) - offSet] = new TrieNode(word.charAt(i));
+			}
 			current = current.children[word.charAt(i) - offSet];
 		}
 	}
 
-    public void insertArray(String[] words) {
-        for(String word : words) {
-            insert(word);
-        }
-    }
+	public void insertArray(String[] words) {
+		for (String word : words) {
+			System.out.println("inserting: " + word);
+			insert(word);
+		}
+	}
 
 	public boolean search(String word) {
 		TrieNode current = root;

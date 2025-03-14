@@ -6,11 +6,10 @@ import java.util.Scanner;
 
 public class ClassScanner {
     Scanner scanner;
-    Trie classAccessModifiers = new Trie();
-    Trie classModifiers = new Trie();
-    Trie accessModifiers = new Trie();
-    Trie modifiers = new Trie();
-
+    public Trie accessModifiers = new Trie();
+    public Trie modifiers = new Trie();
+    public Trie fields = new Trie();
+    
     public enum Type {
         CLASS,
         METHOD,
@@ -87,10 +86,9 @@ public class ClassScanner {
 
 
     public ClassScanner(File file) throws FileNotFoundException {
-        classAccessModifiers.insert("public");
-        classModifiers.insertArray(new String[]{"final", "abstract"});
         accessModifiers.insertArray(new String[]{"public", "private", "protected"});
         modifiers.insertArray(new String[]{"static", "final", "abstract", "transient", "volatile", "synchronized"});
+        fields.insertArray(new String[] {"int","double","float","char","String","boolean"});
         scanner = new Scanner(file);
     }
 
